@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIC-TAC-TOE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main> 
+        <div class="start-screen"> 
+        <h1 style="color: plum; font-size: 56px;"><b><i>Welcome to Sanskriti's TIC TAC TOE Game</i></b></h1>
+
+        <input type="text" id="playerX" placeholder="Player O Name">
+
+        <input type="text" id="playerO" placeholder="Player X Name">
+
+        <button id="start-btn">Start Game</button>
+
+        <img src="https://img.freepik.com/free-vector/simple-vibing-cat-square-meme_742173-4493.jpg?semt=ais_hybrid&w=740&q=80" height="350" width="400">
+    </div>
+    </main>
+
+    <script>
+        const startBtn = document.querySelector("#start-btn");
+
+startBtn.addEventListener("click", () => {
+
+    let oName = document.querySelector("#playerO").value.trim();
+    let xName = document.querySelector("#playerX").value.trim();
+
+    if(oName === "" || xName === "") {
+        alert("Please enter both player names!");
+        return;
+    }
+
+    if(oName.toLowerCase() === xName.toLowerCase()) {
+        alert("Names cannot be same!");
+        return;
+    }
+
+    // save names
+    localStorage.setItem("playerO", oName);
+    localStorage.setItem("playerX", xName);
+
+    // go to game page
+    window.location.href = "game.html";
+});
+</script>
+</body>
+</html>
